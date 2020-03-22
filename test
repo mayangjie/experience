@@ -1,0 +1,44 @@
+今天在 Mac 上用 SourceTree 克隆 git 的时候, 出现了 warning: templates not found /usr/local/git/share/git-core/templates 警告,导致克隆失败
+
+
+
+在终端输入
+
+‍‍open‍‍ /usr/local/
+
+在打开的目录中可以看到:
+
+如果没有 git 目录
+
+打开下面的地址,下载 git-osx 并安装,
+
+http://git-scm.com/download/mac
+
+如果有 git 目录
+
+并且相应的 share,git-core,templates 目录都有,,说明是权限的问题.
+
+在终端输入:
+
+sudo chmod -R 755 /usr/local/git/share/git-core/templates
+
+注意 sudo 创建目录需要输入当前 Mac 用户的密码
+
+最后重新 clone 项目
+
+或者：
+
+sudo mkdir /usr/local/git
+
+sudo mkdir /usr/local/git/share
+
+sudo mkdir /usr/local/git/share/git-core
+
+sudo mkdir /usr/local/git/share/git-core/templates
+
+sudo chmod -R 755 /usr/local/git/share/git-core/templates
+
+作者：青菜白玉堂
+链接：https://www.jianshu.com/p/58e7d4f0b4eb
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
